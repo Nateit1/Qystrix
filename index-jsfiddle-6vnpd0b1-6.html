@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qystrix - Your Privacy, Under Control</title>
+
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  margin: 0;
+}
+.container {
+  background: #222;
+  padding: 30px 40px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 30px #0ff;
+  text-align: center;
+}
+h1 {
+  font-weight: 900;
+  color: #0ff;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+form label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 16px;
+  text-align: left;
+}
+input {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  width: 65%;
+  background: #333;
+  color: #eee;
+  transition: background-color 0.3s;
+}
+input:focus {
+  background-color: #055;
+  outline: none;
+}
+button {
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000;
+  background: #0ff;
+  box-shadow: 0 0 10px #0ff;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+button:hover:not(:disabled) {
+  background: #00cfcf;
+  box-shadow: 0 0 18px #00cfcf;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#riskResult {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0ff;
+  min-height: 50px;
+  transition: opacity 0.5s ease-in-out;
+}
+#tips {
+  margin-top: 35px;
+  text-align: left;
+}
+#tips h3 {
+  color: #0ff;
+  margin-bottom: 12px;
+  letter-spacing: 1.5px;
+}
+#tips ul {
+  padding-left: 20px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+#tips ul li {
+  margin-bottom: 8px;
+}
+/* SVG Logo styling */
+.logo {
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 6px #0ff);
+}
+/* Reset and base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin: 40px 0 60px;
+  user-select: none;
+}
+.logo {
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 6px #0ff);
+  animation: pulse 2.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { filter: drop-shadow(0 0 6px #0ff); }
+  50% { filter: drop-shadow(0 0 20px #33ffff); }
+}
+h1 {
+  font-size: 4rem;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+  color: #0ff;
+  font-weight: 700;
+}
+.tagline {
+  font-size: 1.5rem;
+  color: #66ffff;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+.btn-primary {
+  background-color: #0ff;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 0 20px #0ff;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #00cccc;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  max-width: 900px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+.features article {
+  background: #222;
+  border-radius: 16px;
+  padding: 30px;
+  flex: 1 1 280px;
+  box-shadow: 0 0 15px #0ff50a;
+  transition: transform 0.3s ease;
+}
+.features article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px #33ffff;
+}
+.features h2 {
+  color: #0ff;
+  margin-bottom: 12px;
+}
+.features p {
+  color: #ccc;
+  font-size: 1.05rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+  background: #222;
+  max-width: 600px;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 0 25px #33ffff;
+}
+.how-it-works h2 {
+  color: #0ff;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.how-it-works ol {
+  list-style-position: inside;
+  margin-bottom: 30px;
+  text-align: left;
+  color: #ccc;
+  font-size: 1.1rem;
+}
+.how-it-works ol li {
+  margin-bottom: 12px;
+}
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 40px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-secondary:hover {
+  background-color: #0ff;
+  color: #000;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  user-select: none;
+}
+footer a {
+  color: #0ff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .features {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .features article {
+    flex: none;
+  }
+}
+/* Paste CSS here or in separate panel */
+  </style>
+
+  
+</head>
+<body>
+  <div class="container" role="main" aria-label="Qystrix personal info protection form">
+  
+  <!-- Qystrix Logo: Shield with All-Seeing Eye -->
+  <div class="logo" aria-hidden="true" title="Qystrix Logo">
+    <svg width="120" height="140" viewBox="0 0 64 74" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#00FFFF" stroke-width="2" stroke-linejoin="round" role="img" aria-label="Shield with all seeing eye logo">
+      <!-- Shield -->
+      <path d="M32 2 L58 14 V38 C58 58 45 70 32 72 C19 70 6 58 6 38 V14 Z" fill="#000000" stroke="#00FFFF"/>
+      
+      <!-- Eye outline -->
+      <ellipse cx="32" cy="38" rx="16" ry="10" fill="none" stroke="#00FFFF" stroke-width="2"/>
+      
+      <!-- Eye iris -->
+      <circle cx="32" cy="38" r="6" fill="#00FFFF" />
+      
+      <!-- Eye pupil -->
+      <circle cx="32" cy="38" r="3" fill="#000000" />
+      
+      <!-- Eye highlight -->
+      <circle cx="30" cy="35" r="1.5" fill="#66FFFF" />
+    </svg>
+  </div>
+
+  <h1>Qystrix</h1>
+  <p>Protect & Manage Your Personal Information</p>
+  
+  <form id="infoForm" aria-describedby="riskResult" novalidate>
+    <label for="email">Email:
+      <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+    </label>
+    <label for="phone">Phone:
+      <input type="tel" id="phone" name="phone" placeholder="+1 555 123 4567" autocomplete="tel" />
+    </label>
+    <label for="address">Address:
+      <input type="text" id="address" name="address" placeholder="123 Main St" autocomplete="street-address" />
+    </label>
+    <label for="birthdate">Birthdate:
+      <input type="date" id="birthdate" name="birthdate" />
+    </label>
+    <label for="ssn">Social Security Number (SSN):
+      <input type="text" id="ssn" name="ssn" placeholder="XXX-XX-XXXX" autocomplete="off" />
+    </label>
+    <label for="password" style="opacity:0.5; user-select:none;">Passwords (Never store here!):
+      <input type="password" id="password" name="password" placeholder="Not safe to save here" disabled />
+    </label>
+    <button type="submit" id="checkBtn">Check Risk</button>
+    <button type="button" id="clearBtn">Clear Data</button>
+  </form>
+
+  <div id="riskResult" role="alert" aria-live="polite"></div>
+
+  <section id="tips" aria-label="Privacy tips">
+    <h3>Privacy Tips:</h3>
+    <ul>
+      <li>Never share your SSN or passwords online.</li>
+      <li>Use strong, unique passwords and a password manager.</li>
+      <li>Be cautious with sharing your address and birthdate.</li>
+      <li>Regularly check your accounts for suspicious activity.</li>
+      <li>Use two-factor authentication where possible.</li>
+    </ul>
+  </section>
+</div>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <header class="hero">
+    <div class="logo" aria-hidden="true" title="Qystrix Logo">
+      <svg width="100" height="120" viewBox="0 0 64 74" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#00FFFF" stroke-width="2" stroke-linejoin="round" role="img" aria-label="Shield with all seeing eye logo">
+        <path d="M32 2 L58 14 V38 C58 58 45 70 32 72 C19 70 6 58 6 38 V14 Z" fill="#000000" stroke="#00FFFF"/>
+        <ellipse cx="32" cy="38" rx="16" ry="10" fill="none" stroke="#00FFFF" stroke-width="2"/>
+        <circle cx="32" cy="38" r="6" fill="#00FFFF" />
+        <circle cx="32" cy="38" r="3" fill="#000000" />
+        <circle cx="30" cy="35" r="1.5" fill="#66FFFF" />
+      </svg>
+    </div>
+    <h1>Qystrix</h1>
+    <p class="tagline">Your Privacy, Under Control.</p>
+    <a href="#get-started" class="btn-primary" role="button">Get Started — It’s Free</a>
+  </header>
+
+  <main>
+    <section class="features" aria-label="Features of Qystrix">
+      <article>
+        <h2>AI-Powered Privacy Insights</h2>
+        <p>Understand what your apps collect & who they share with — in clear language.</p>
+      </article>
+      <article>
+        <h2>Instant One-Tap Fixes</h2>
+        <p>Revoke risky permissions, block trackers, uninstall unsafe apps instantly.</p>
+      </article>
+      <article>
+        <h2>Secure & Trusted</h2>
+        <p>Your data stays safe — Qystrix never collects or sells your info.</p>
+      </article>
+    </section>
+
+    <section id="get-started" class="how-it-works" aria-label="How Qystrix works">
+      <h2>How It Works</h2>
+      <ol>
+        <li>Connect your devices and apps.</li>
+        <li>Qystrix scans and reveals your privacy risks.</li>
+        <li>One tap to fix and regain control.</li>
+      </ol>
+      <a href="#signup" class="btn-secondary">Join the Beta</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Qystrix • <a href="#">Privacy Policy</a> • <a href="#">Contact</a></p>
+    <p>Follow us on <a href="https://twitter.com/qystrix" target="_blank" rel="noopener noreferrer">@qystrix</a></p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('infoForm');
+const riskResult = document.getElementById('riskResult');
+const clearBtn = document.getElementById('clearBtn');
+const checkBtn = document.getElementById('checkBtn');
+
+// Load saved data if any
+window.onload = () => {
+  ['email', 'phone', 'address', 'birthdate', 'ssn'].forEach(id => {
+    const saved = localStorage.getItem(id);
+    if (saved) {
+      document.getElementById(id).value = saved;
+    }
+  });
+};
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  
+  // Disable button to prevent spam
+  checkBtn.disabled = true;
+
+  // Gather data
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const address = form.address.value.trim();
+  const birthdate = form.birthdate.value.trim();
+  const ssn = form.ssn.value.trim();
+  
+  // Save data locally
+  localStorage.setItem('email', email);
+  localStorage.setItem('phone', phone);
+  localStorage.setItem('address', address);
+  localStorage.setItem('birthdate', birthdate);
+  localStorage.setItem('ssn', ssn);
+  
+  // Calculate risk score (weighted example)
+  let risk = 0;
+  if (email) risk += 1;
+  if (phone) risk += 2;
+  if (address) risk += 3;
+  if (birthdate) risk += 2;
+  if (ssn) risk += 5;
+  
+  // Risk level message
+  let message = '';
+  if (risk === 0) message = "No personal data entered.";
+  else if (risk <= 3) message = "Low risk. Good job protecting your info!";
+  else if (risk <= 7) message = "Moderate risk. Consider limiting info shared.";
+  else message = "High risk! Be careful with your sensitive info.";
+  
+  // Show message with fade effect
+  riskResult.style.opacity = '0';
+  setTimeout(() => {
+    riskResult.textContent = message;
+    riskResult.style.opacity = '1';
+    checkBtn.disabled = false;
+  }, 300);
+});
+
+clearBtn.addEventListener('click', () => {
+  ['email', 'phone', 'address', 'birthdate', 'ssn'].forEach(id => {
+    localStorage.removeItem(id);
+    document.getElementById(id).value = '';
+  });
+  riskResult.textContent = '';
+});
+
+  </script>
+</body>
+</html>
