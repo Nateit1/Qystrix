@@ -1,4 +1,3 @@
-
 Qystirx
 
 Qystirx is a privacy-focused application that helps users protect their personal data, detect leaks, and stay informed about how their information is being used online. In a world where digital privacy is constantly under threat, Qystirx empowers users to take control of their digital footprint.
